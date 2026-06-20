@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+
+<title>
+AI Resume Analyzer
+</title>
+
+
+<link rel="stylesheet" href="/static/style.css">
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="container">
+
+
+<h1>
+🤖 AI Resume Analyzer
+</h1>
+
+
+
+<form action="/analyze" method="POST" enctype="multipart/form-data">
+
+
+<input 
+type="file"
+name="resume"
+accept=".pdf"
+required>
+
+
+<button type="submit">
+
+Analyze Resume
+
+</button>
+
+
+</form>
+
+
+
+
+{% if result %}
+
+
+<div class="result">
+
+
+<h2>
+Resume Score: {{result.score}}%
+</h2>
+
+
+
+<h3>
+Skills Found:
+</h3>
+
+
+<ul>
+
+{% for skill in result.found %}
+
+<li>
+✅ {{skill}}
+</li>
+
+{% endfor %}
+
+
+</ul>
+
+
+
+<h3>
+Missing Skills:
+</h3>
+
+
+<ul>
+
+
+{% for skill in result.missing %}
+
+<li>
+❌ {{skill}}
+</li>
+
+
+{% endfor %}
+
+
+</ul>
+
+<h3>
+Recommendations:
+</h3>
+
+
+<ul>
+
+{% for item in result.recommendations %}
+
+<li>
+📚 {{item}}
+</li>
+
+{% endfor %}
+
+
+</ul>
+
+</div>
+
+
+{% endif %}
+
+
+
+</div>
+
+
+
+</body>
+
+
+</html>
