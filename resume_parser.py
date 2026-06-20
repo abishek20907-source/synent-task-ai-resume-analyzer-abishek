@@ -1,3 +1,8 @@
+# AI Resume Analyzer
+# Extracts PDF text and analyzes candidate skills
+
+
+
 from PyPDF2 import PdfReader
 
 
