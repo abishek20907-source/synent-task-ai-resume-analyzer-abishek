@@ -64,13 +64,13 @@ def analyze_resume(text):
 
             missing.append(skill)
 
-
+# Calculate resume score based on matched skills
 
     score = int(
         (len(found) / len(skills)) * 100
     )
 
-
+# Generate learning recommendations for missing skills
 
     recommendations = []
 
